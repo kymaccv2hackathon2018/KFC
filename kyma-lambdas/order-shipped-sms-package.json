@@ -1,0 +1,6 @@
+{
+  "name": "order-shipped-sms",
+  "dependencies": {
+    "aws-sdk": "^2.369.0"
+  }
+}

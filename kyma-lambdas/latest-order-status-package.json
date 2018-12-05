@@ -1,0 +1,6 @@
+{
+  "name": "latest-order-status",
+  "dependencies": {
+    "axios": "^0.18.0"
+  }
+}
