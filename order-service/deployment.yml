@@ -1,0 +1,41 @@
+apiVersion: v1
+kind: Service
+metadata:
+  namespace: stage
+  name: order-service
+  labels:
+    example: order-service
+  annotations:
+    auth.istio.io/8080: NONE
+spec:
+  ports:
+  - name: http
+    port: 8080
+  selector:
+    example: order-service
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: order-service
+  namespace: stage
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        example: order-service
+      annotations:
+        sidecar.istio.io/inject: "true"
+    spec:
+      containers:
+      - image: teamkfc/order-service:latest
+        imagePullPolicy: Always
+        name: order-service
+        ports:
+        - name: http
+          containerPort: 8080
+        env:
+        - name: dbtype
+          # available dbtypes are: [memory, mssql]
+          value: "memory"

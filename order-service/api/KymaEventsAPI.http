@@ -1,0 +1,28 @@
+### Trigger OrderCreated event in CCV2
+POST https://orderstatusupdate-stage.sa-hackathon-07.cluster.extend.sap.cx/
+kyma-event-type: order.created
+Content-Type: application/json
+
+{
+  "orderCode": "123"
+}
+
+### Trigger Order Shipped event in CCV2
+POST https://orderstatusupdate-stage.sa-hackathon-07.cluster.extend.sap.cx/
+kyma-event-type: order.deliverysent
+Content-Type: application/json
+
+{
+  "orderCode": "123"
+}
+
+### Trigger Order Shipped event in CCV2
+POST https://orderstatusupdate-stage.sa-hackathon-07.cluster.extend.sap.cx/
+kyma-event-type: order.completed
+Content-Type: application/json
+
+{
+  "orderCode": "123"
+}
+
+###

@@ -1,0 +1,6 @@
+### Queries products in "electronics" store by the product name
+GET http://{{host}}/catalog/products?product=PL60
+
+### Queries products in "electronics" store by the product name
+GET http://{{host}}/catalog/search?query=::product:PL60
+###

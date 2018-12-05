@@ -1,0 +1,71 @@
+### Retrieves status of a specific order
+GET http://{{host}}/orders/123/status
+
+### Records new order status
+POST http://{{host}}/orders/
+Content-Type: application/json
+Accept: application/json
+
+{
+  "id": "00000123",
+  "status": "submitted"
+}
+
+### Update status of an existing order
+POST http://{{host}}/orders/
+Content-Type: application/json
+Accept: application/json
+
+{
+  "id": "00000123",
+  "status": "shipped"
+}
+
+### Order ID must be present in the request body
+POST http://{{host}}/orders/
+Content-Type: application/json
+Accept: application/json
+
+{
+  "status": "shipped"
+}
+
+> {%
+client.test("Request body must contain 'id' attribute", function() {
+  client.assert(response.status === 400, "Expected response status 400 but found " + response.status);
+});
+%}
+
+### Order ID must not be empty in the request body
+POST http://{{host}}/orders/
+Content-Type: application/json
+Accept: application/json
+
+{
+  "id": "",
+  "status": "shipped"
+}
+
+> {%
+client.test("Request body must contain non-empty 'id' attribute", function() {
+  client.assert(response.status === 400, "Expected response status 400 but found " + response.status);
+});
+%}
+
+### Order ID must be numeric
+POST http://{{host}}/orders/
+Content-Type: application/json
+Accept: application/json
+
+{
+  "id": "a123",
+  "status": "submitted"
+}
+
+> {%
+client.test("Request body must numeric 'id' attribute", function() {
+  client.assert(response.status === 400, "Expected response status 400 but found " + response.status);
+});
+%}
+
+###
