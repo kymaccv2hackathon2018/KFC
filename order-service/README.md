@@ -16,5 +16,5 @@
 * in your terminal `export KUBECONFIG=~/Downloads/kubeconfig`
 
 **Deploying to kyma**
-* Delete the existing deployment: `kubectl delete -f https://stash.hybris.com/users/johnny.loi_sap.com/repos/order-service/raw/deployment.yml\?at\=refs%2Fheads%2Fmaster -n stage`
-* Deploy to kyma: `kubectl apply -f https://stash.hybris.com/users/johnny.loi_sap.com/repos/order-service/raw/deployment.yml\?at\=refs%2Fheads%2Fmaster -n stage`
+* Delete the existing deployment: `kubectl delete -f https://raw.githubusercontent.com/kymaccv2hackathon2018/KFC/master/order-service/deployment.yml -n stage`
+* Deploy to kyma: `kubectl apply -f https://raw.githubusercontent.com/kymaccv2hackathon2018/KFC/master/order-service/deployment.yml -n stage`
